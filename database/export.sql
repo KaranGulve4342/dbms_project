@@ -1,47 +1,56 @@
--- MySQL dump 10.13  Distrib 8.0.29, for macos12 (x86_64)
---
 -- Host: localhost    Database: dbms_project
 -- ------------------------------------------------------
--- Server version	8.0.29
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
 -- Table structure for table `auth`
---
+
+-- Drop the table `auth` if it already exists (safety check)
 DROP TABLE IF EXISTS `auth`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
+-- Create a new table named `auth`
 CREATE TABLE `auth` (
+  -- Unique identifier for each user, limited to 10 characters
   `user_id` varchar(10) NOT NULL,
+  -- Password for authentication, limited to 20 characters, defaults to '12345678' if not specified
   `password` varchar(20) NOT NULL DEFAULT '12345678',
+  -- Unique identifier for each record, cannot be null
   `id` int NOT NULL,
+  -- Primary key constraint on `user_id` column for uniqueness
   PRIMARY KEY (`user_id`),
+  -- Unique key constraint on `id` column for uniqueness
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
 
 --
 -- Dumping data for table `auth`
 --
-
+-- Lock the `auth` table for writing to prevent concurrent modifications
 LOCK TABLES `auth` WRITE;
-/*!40000 ALTER TABLE `auth` DISABLE KEYS */;
-INSERT INTO `auth` VALUES ('a-123','12345678',101),('a-124','12345678',102),('a-909','12345678',103),('e-123','12345678',701),('e-456','12345678',702),('e-909','12345678',703),('o-123','12345678',501),('o-124','12345678',502),('o-456','12345678',503),('o-909','12345678',504),('t-123','12345678',601),('t-124','12345678',602),('t-145','12345678',603),('t-190','12345678',604),('t-345','12345678',605);
-/*!40000 ALTER TABLE `auth` ENABLE KEYS */;
+
+-- Insert data into the `auth` table
+INSERT INTO `auth` VALUES 
+  -- Inserting user data
+  ('a-123','12345678',101),
+  ('a-124','12345678',102),
+  ('a-909','12345678',103),
+  ('e-123','12345678',701),
+  ('e-456','12345678',702),
+  ('e-909','12345678',703),
+  ('o-123','12345678',501),
+  ('o-124','12345678',502),
+  ('o-456','12345678',503),
+  ('o-909','12345678',504),
+  ('t-123','12345678',601),
+  ('t-124','12345678',602),
+  ('t-145','12345678',603),
+  ('t-190','12345678',604),
+  ('t-345','12345678',605);
+-- Unlock the `auth` table to allow other processes to access it
 UNLOCK TABLES;
 
+
 --
--- Temporary view structure for view `avt`
+--  Temporary view structure for view `avt`
 --
 
 DROP TABLE IF EXISTS `avt`;
