@@ -98,7 +98,7 @@ function Auth(props) {
           <div className="max-w-md mx-auto my-10 bg-blue-100 p-2 rounded-md">
             <div className="text-center">
               <h1 className="my-3 text-3xl font-semibold text-gray-700 ">
-              StudentSphere
+              UrbanNest Manager
               </h1>
             </div>
             <div className="m-7">

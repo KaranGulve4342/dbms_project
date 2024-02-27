@@ -1,1 +1,34 @@
-.vscode
+# This is a sample .gitignore file
+
+# Directories
+node_modules/
+bower_components/
+tmp/
+.venv/
+
+# Files
+.env
+*.log
+*.tmp
+*.bak
+*.swp
+Thumbs.db
+.DS_Store
+
+# Python-specific
+*.pyc
+__pycache__/
+
+# IDE-specific
+.idea/
+*.sublime-workspace
+*.project
+*.nimble
+
+# Package-specific
+/package-lock.json
+/yarn.lock
+
+# OS-specific
+.AppData/
+.Trash/
